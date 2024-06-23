@@ -11,7 +11,7 @@ bottom_html = file_bottom.read()
 file_bottom.close()
 
 file_build = open('index.html', 'w')
-file_build.write(top_html)
+file_build.write(top_html + '\n')
 
 lines = []
 for folder in glob.glob('*/'):
