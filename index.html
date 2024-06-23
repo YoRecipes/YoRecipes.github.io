@@ -58,10 +58,23 @@
                 continue;
             }
             if (txtValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
+                if (document.getElementById("basics").checked && li[i].className.indexOf("basics") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("starters").checked && li[i].className.indexOf("starters") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("main-courses").checked && li[i].className.indexOf("main-courses") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("desserts").checked && li[i].className.indexOf("desserts") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("ice-cream").checked && li[i].className.indexOf("ice-cream") > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
             } else {
                 li[i].style.display = "none";
             }
+
         }
     }
 </script>
