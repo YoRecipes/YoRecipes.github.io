@@ -15,7 +15,7 @@ file_build.write(top_html + '\n')
 
 lines = []
 for folder in glob.glob('*/'):
-    folder_class = folder.replace('_', '-')
+    folder_class = folder.replace('_', '-').replace('\\', '')
     for file in glob.glob(folder+'*.docx'):
         name = file.split('\\')[1].split('.')[0]
         if name[0] == '_':
