@@ -14,10 +14,10 @@ file_build = open('index.html', 'w')
 file_build.write(top_html + '\n')
 
 lines = []
-for folder in glob.glob('*/'):
-    folder_class = folder.replace('_', '-').replace('\\', '')
+for folder in glob.glob('PDF\\*\\'):
+    folder_class = folder.replace('_', '-').replace('\\', '').replace('PDF', '')
     for file in glob.glob(folder+'*.pdf'):
-        name = file.split('\\')[1].split('.')[0]
+        name = file.split('\\')[2].split('.')[0]
         redirect = file.replace("\\", "/")
         if name[0] == '_':
             continue
