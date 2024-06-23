@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yo! Recipes!</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Yo! Recipes!</h1>
+    <div>
+        <input type="checkbox" id="basics" onclick="filter()" checked><label for="basics">Basics</label>
+        <input type="checkbox" id="starters" onclick="filter()" checked><label for="starters">Starters</label>
+        <input type="checkbox" id="main-courses" onclick="filter()" checked><label for="main-courses">Main
+            Courses</label>
+        <input type="checkbox" id="desserts" onclick="filter()" checked><label for="desserts">Desserts</label>
+        <input type="checkbox" id="ice-cream" onclick="filter()" checked><label for="ice-cream">Ice Cream</label>
+    </div>
+    <input type="text" id="searchBox" onkeyup="filter()" placeholder="Search for a recipe..">
+    <ul id="recipes">
