@@ -1,0 +1,40 @@
+</ul>
+
+</body>
+
+<script>
+    function filter() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("searchBox");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("recipes");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (li[i].className.indexOf("recipe") == -1) {
+                continue;
+            }
+            if (txtValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().indexOf(filter) > -1) {
+                if (document.getElementById("basics").checked && li[i].className.indexOf("basics") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("starters").checked && li[i].className.indexOf("starters") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("main-courses").checked && li[i].className.indexOf("main-courses") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("desserts").checked && li[i].className.indexOf("desserts") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("ice-cream").checked && li[i].className.indexOf("ice-cream") > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            } else {
+                li[i].style.display = "none";
+            }
+
+        }
+    }
+</script>
+
+</html>
