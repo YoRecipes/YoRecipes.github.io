@@ -1,5 +1,6 @@
 import os
 import glob
+from unidecode import unidecode
 
 file_top = open('index_top.html', 'r')
 top_html = file_top.read()
@@ -19,7 +20,7 @@ for folder in glob.glob('*/'):
         name = file.split('\\')[1].split('.')[0]
         if name[0] == '_':
             continue
-        lines.append( (name, f'        <li class="recipe {folder_class}"><a>{name}</a></li>\n') )
+        lines.append( (unidecode(name), f'        <li class="recipe {folder_class}"><a>{name}</a></li>\n') )
 
 lines.sort()
 for line in lines:
