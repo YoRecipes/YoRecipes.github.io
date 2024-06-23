@@ -18,9 +18,10 @@ for folder in glob.glob('*/'):
     folder_class = folder.replace('_', '-').replace('\\', '')
     for file in glob.glob(folder+'*.pdf'):
         name = file.split('\\')[1].split('.')[0]
+        redirect = file.replace("\\", "/")
         if name[0] == '_':
             continue
-        lines.append( (unidecode(name), f'        <li class="recipe {folder_class}"><a>{name}</a></li>\n') )
+        lines.append( (unidecode(name), f'        <li class="recipe {folder_class}"><a href="{redirect}">{name}</a></li>\n') )
 
 lines.sort()
 for line in lines:
