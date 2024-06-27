@@ -29,11 +29,33 @@
             margin: 1em 0em;
         }
 
-        a{
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:not(:checked)+label {
+            background-color: #f1f1f1;
+        }
+
+        input[type="checkbox"]:checked+label {
+            background-color: #ccc;
+        }
+
+        label {
+            display: inline-block;
+            padding: 0.25em 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 0.5em;
+            cursor: pointer;
+            user-select: none;
+            font-weight: bold;
+        }
+
+        a {
             text-decoration: none;
             color: black;
         }
-        
+
         ul {
             list-style-type: none;
             padding: 0;
