@@ -24,13 +24,17 @@
             text-align: center;
             color: #333;
         }
+
+        #recipe-types {
+            margin: 1em 0em;
+        }
     </style>
 </head>
 
 <body>
 
     <h1>Yo! Recipes!</h1>
-    <div>
+    <div id="recipe-types">
         <input type="checkbox" id="basics" onclick="filter()" checked><label for="basics">Basics</label>
         <input type="checkbox" id="starters" onclick="filter()" checked><label for="starters">Starters</label>
         <input type="checkbox" id="main-courses" onclick="filter()" checked><label for="main-courses">Main
