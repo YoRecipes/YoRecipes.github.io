@@ -9,7 +9,6 @@ last_modified_timestamp = 0
 f = open('last_update_timestamp.txt', 'r')
 last_modified_timestamp = int(f.read().strip())
 f.close()
-print(last_modified_timestamp)
 
 # --------------------------------------------------
 # Convert DOCX to PDF
