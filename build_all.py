@@ -12,20 +12,13 @@ f.close()
 
 # --------------------------------------------------
 # Convert DOCX to PDF
-
-# Using the library "docx2pdf" (https://github.com/AlJohri/docx2pdf)
-# 
-# `pip install docx2pdf`
 from docx2pdf import convert
 
 # Convert example:
-# ```python
 # in_file = "DOCX/starters/Canneles Pesto Parmesan.docx"
 # out_file = "PDF/starters/Canneles Pesto Parmesan.pdf"
-# 
 # convert(in_file, out_file)
-# ```
-
+# 
 # convert("DOCX/desserts/Banana Bread.docx", "PDF/desserts/Banana Bread.pdf")
 
 for folder in glob.glob('DOCX\\*\\'):
@@ -44,21 +37,14 @@ print()
 
 # --------------------------------------------------
 # Convert PDF to PNG
-
-# Using the library "pdf2image" (https://pypi.org/project/pdf2image/)
-# 
-# `pip install pdf2image`
-
 from pdf2image import convert_from_path
 
 # Convert example:
-# ```python
 # images = convert_from_path('PDF/desserts/Banana Bread.pdf')
 # # images is a list of PIL images (one per page)
 # for i,image in enumerate(images):
 #     image.save(f'PNG/desserts/Banana Bread{i}.pdf')
-# ```
-
+# 
 # images = convert_from_path('PDF/desserts/Banana Bread.pdf')
 # images[0].save('PNG/desserts/Banana Bread.png', 'PNG')
 
@@ -180,6 +166,8 @@ f.close()
 # Build the index.html
 
 from unidecode import unidecode
+# Usage example:
+# unidecode('kožušček') -> 'kozuscek'
 
 file_top = open('index_top.html', 'r')
 top_html = file_top.read()
