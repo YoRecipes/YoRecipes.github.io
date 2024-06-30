@@ -2,11 +2,17 @@ import glob
 import os
 import time
 
+# --------------------------------------------------
+# Get the last modified timestamp
+
 last_modified_timestamp = 0
 f = open('last_update_timestamp.txt', 'r')
 last_modified_timestamp = int(f.read().strip())
 f.close()
 print(last_modified_timestamp)
+
+# --------------------------------------------------
+# Convert DOCX to PDF
 
 # Using the library "docx2pdf" (https://github.com/AlJohri/docx2pdf)
 # 
@@ -38,6 +44,7 @@ for folder in glob.glob('DOCX\\*\\'):
 print()
 
 # --------------------------------------------------
+# Convert PDF to PNG
 
 # Using the library "pdf2image" (https://pypi.org/project/pdf2image/)
 # 
@@ -73,6 +80,7 @@ for folder in glob.glob('PDF\\*\\'):
 print()
 
 # --------------------------------------------------
+# Convert PNG to HTML
 
 for folder in glob.glob('PNG\\*\\'):
     sub_folder = folder.split('\\')[1]
@@ -163,12 +171,14 @@ for folder in glob.glob('PNG\\*\\'):
                 f.write(txt)
 
 # --------------------------------------------------
+# Save the last modified timestamp
 
 f = open('last_update_timestamp.txt', 'w')
 f.write(str(int(time.time())))
 f.close()
 
 # --------------------------------------------------
+# Build the index.html
 
 from unidecode import unidecode
 
