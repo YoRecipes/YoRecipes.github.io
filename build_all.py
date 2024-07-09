@@ -153,7 +153,7 @@ for folder in glob.glob('PNG\\*\\'):
 
 
 </html>'''
-            with open(new_file, 'w') as f:
+            with open(new_file, 'w', encoding='UTF8') as f:
                 f.write(txt)
 
 # --------------------------------------------------
@@ -170,15 +170,15 @@ from unidecode import unidecode
 # Usage example:
 # unidecode('kožušček') -> 'kozuscek'
 
-file_top = open('index_top.html', 'r')
+file_top = open('index_top.html', 'r', encoding='UTF8')
 top_html = file_top.read()
 file_top.close()
 
-file_bottom = open('index_bottom.html', 'r')
+file_bottom = open('index_bottom.html', 'r', encoding='UTF8')
 bottom_html = file_bottom.read()
 file_bottom.close()
 
-file_build = open('index.html', 'w')
+file_build = open('index.html', 'w', encoding='UTF8')
 file_build.write(top_html + '\n')
 
 lines = []
