@@ -39,5 +39,24 @@ def convert_docx_to_pdf(docx_folder, pdf_folder):
             print(f'Skipped conversion to PDF of {docx_path}')
     print(f'Converted {docx_folder}/* to {pdf_folder}/*')
 
+def convert_all_docx_to_pdf(docx_mega_folder, pdf_mega_folder):
+    """Converts recursively all docx folders in docx_mega_folder to pdf folders in pdf_mega_folder
+
+    Args:
+        docx_mega_folder (folder path)
+        pdf_mega_folder (folder path)
+    """
+    # convert docx to pdf each sub-folder
+    for folder in os.listdir(docx_mega_folder):
+        # skip if folder is a temp file
+        if folder == '_':
+            continue
+        docx_folder_path = os.path.join(docx_mega_folder, folder)
+        pdf_folder_path = os.path.join(pdf_mega_folder, folder)
+        if not os.path.exists(pdf_folder_path):
+            os.makedirs(pdf_folder_path)
+        convert_docx_to_pdf(docx_folder_path, pdf_folder_path)
+    print(f'Converted {docx_mega_folder}/* to {pdf_mega_folder}/*')
+
 if __name__ == "__main__":
     pass
