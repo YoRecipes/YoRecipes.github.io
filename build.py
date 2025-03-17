@@ -297,3 +297,16 @@ if __name__ == "__main__":
     create_index('HTML', 'index.html')
     print('Done!')
     print('\n'*3)
+
+    ### English
+    # translate all recipes to English
+    translate_all_recipes('DOCX', 'DOCX-en', GoogleTranslator(source='fr', target='en'), 'en-US')
+    # convert all docx to pdf
+    convert_all_docx_to_pdf('DOCX-en', 'PDF-en')
+    # convert all pdf to png
+    convert_all_pdf_to_png('PDF-en', 'PNG-en')
+    # create all html files
+    create_all_html('PNG-en', 'PDF-en', 'DOCX-en', 'HTML-en', 'index-en.html')
+    create_index('HTML-en', 'index-en.html')
+    print('ENGLISH: Done!')
+    print('\n'*3)
