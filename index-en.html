@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <title>Recipes!</title>
+    <style>
+        @font-face {
+            font-family: monotypeCorsiva;
+            src: url(monotype-corsiva.ttf);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            padding-top: 2em;
+            font-family: monotypeCorsiva;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 0.2em 0 0 0;
+        }
+
+        #recipe-types {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1em 0em;
+            user-select: none;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:not(:checked)+label {
+            background-color: #f1f1f1;
+        }
+
+        input[type="checkbox"]:checked+label {
+            background-color: #ccc;
+        }
+
+        label {
+            display: inline-block;
+            padding: 0.25em 0.5em;
+            margin: 0.1em;
+            border: 1px solid #ccc;
+            border-radius: 0.5em;
+            cursor: pointer;
+            user-select: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 15.5em;
+        }
+
+        label[for="basics"],
+        .basics a {
+            color: #002060;
+        }
+
+        label[for="starters"],
+        .starters a {
+            color: #e36c0a;
+        }
+
+        label[for="main-courses"],
+        .main-courses a {
+            color: #00b050;
+            color: #c00000;
+        }
+
+        label[for="desserts"],
+        .desserts a {
+            color: #0070c0;
+        }
+
+        label[for="ice-creams"],
+        .ice-creams a {
+            color: #5f497a;
+        }
+
+        label[for="breads"],
+        .breads a {
+            color: #8A4500;
+        }
+
+        nav {
+            font-family: Arial, sans-serif;
+            position: absolute;
+            display: flex;
+            top: 0;
+            right: 0;
+            margin-top: 0.2em;
+            margin-right: 0.4em;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 0;
+            margin: 0.1em;
+        }
+
+        nav a img {
+            height: 1.6em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html"><img src="fr.png" alt="🇫🇷"></a>
+        <a href="index-en.html"><img src="en.png" alt="🇬🇧"></a>
+        <a href="index-sp.html"><img src="sp.png" alt="🇪🇸"></a>
+        <a href="index-it.html"><img src="it.png" alt="🇮🇹"></a>
+    </nav>
+    <img src="logo.svg" alt="logo" width="200" height="200">
+    <h1>Yo! Recipes!</h1>
+    <div id="recipe-types">
+        <input type="checkbox" id="basics" onclick="filter()" checked><label for="basics">Basics</label>
+        <input type="checkbox" id="starters" onclick="filter()" checked><label for="starters">Starters</label>
+        <input type="checkbox" id="main-courses" onclick="filter()" checked><label for="main-courses">Main
+            Courses</label>
+        <input type="checkbox" id="desserts" onclick="filter()" checked><label for="desserts">Desserts</label>
+        <input type="checkbox" id="ice-creams" onclick="filter()" checked><label for="ice-creams">Ice Creams</label>
+        <input type="checkbox" id="breads" onclick="filter()" checked><label for="breads">Breads</label>
+    </div>
+    <input type="text" id="searchBox" onkeyup="filter()" placeholder="Search for a recipe..">
+    <ul id="recipes">
+        <li class="recipe desserts"><a href="HTML-en/desserts/Almond financiers.html">Almond financiers</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Almond tiles.html">Almond tiles</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Apple crumble.html">Apple crumble</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Applesauce.html">Applesauce</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Banana Bread.html">Banana Bread</a></li>
+        <li class="recipe ice-creams"><a href="HTML-en/ice_creams/Banana ice cream.html">Banana ice cream</a></li>
+        <li class="recipe breads"><a href="HTML-en/breads/Basic bread.html">Basic bread</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Béchamel sauce.html">Béchamel sauce</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Beet foam.html">Beet foam</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Black olive tapenade.html">Black olive tapenade</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Bolognese lasagna.html">Bolognese lasagna</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Braised carrots.html">Braised carrots</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Brownie.html">Brownie</a></li>
+        <li class="recipe breads"><a href="HTML-en/breads/Bun.html">Bun</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Burgundian beef.html">Burgundian beef</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Cauliflower.html">Cauliflower</a></li>
+        <li class="recipe breads"><a href="HTML-en/breads/Cereal bread.html">Cereal bread</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Charlotte Pear Chocolate.html">Charlotte Pear Chocolate</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Chile Con Carne.html">Chile Con Carne</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Chocolate Chips and Blueberries Muffins.html">Chocolate Chips and Blueberries Muffins</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Chocolate cake granny lisette.html">Chocolate cake granny lisette</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Chocolate mousse.html">Chocolate mousse</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Chocolate pistachio cookies.html">Chocolate pistachio cookies</a></li>
+        <li class="recipe ice-creams"><a href="HTML-en/ice_creams/Chocolate sorbet.html">Chocolate sorbet</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Chouquettes.html">Chouquettes</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Clafoutis.html">Clafoutis</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Classic cookies.html">Classic cookies</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Classic tiramisu.html">Classic tiramisu</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Cod and her granny po sauce.html">Cod and her granny po sauce</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Cucumber Apple Avocado Salad.html">Cucumber Apple Avocado Salad</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Cucumber salad.html">Cucumber salad</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Egg flans.html">Egg flans</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Exotic blanquette.html">Exotic blanquette</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Fall squash velouté.html">Fall squash velouté</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Fish Muqueca.html">Fish Muqueca</a></li>
+        <li class="recipe breads"><a href="HTML-en/breads/French bread.html">French bread</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Fruit pies.html">Fruit pies</a></li>
+        <li class="recipe breads"><a href="HTML-en/breads/Full wheat bread.html">Full wheat bread</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Garlic and cheese drop cookies.html">Garlic and cheese drop cookies</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Grandma PO's Soft Chocolate Cake.html">Grandma PO's Soft Chocolate Cake</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Gullies.html">Gullies</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Hachi Parmentier.html">Hachi Parmentier</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Lamb tagine.html">Lamb tagine</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Lebanese tabbouleh.html">Lebanese tabbouleh</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Lemon cake.html">Lemon cake</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Lorraine quiche.html">Lorraine quiche</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Marie's tacos.html">Marie's tacos</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Marinade for pork spine.html">Marinade for pork spine</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Mayonnaise.html">Mayonnaise</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Mémée Christmas Log.html">Mémée Christmas Log</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Meringue lemon pie.html">Meringue lemon pie</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Mignon fillet at curry.html">Mignon fillet at curry</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Milk Breads.html">Milk Breads</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Mimosa eggs.html">Mimosa eggs</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Mushroom risotto.html">Mushroom risotto</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Osso veal bucco.html">Osso veal bucco</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Pancake.html">Pancake</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Pancake dough.html">Pancake dough</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Pastry cream.html">Pastry cream</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Pavlova Red Fruits.html">Pavlova Red Fruits</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Peach soup.html">Peach soup</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Pepper salmon.html">Pepper salmon</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Pesto Parmesan canes.html">Pesto Parmesan canes</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Pineapple cake.html">Pineapple cake</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Pistachio cookies.html">Pistachio cookies</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Pistachio paste.html">Pistachio paste</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Pistou soup.html">Pistou soup</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Pizza dough.html">Pizza dough</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Potatoes.html">Potatoes</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Provençal salmon.html">Provençal salmon</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Queijo pao.html">Queijo pao</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Ratatouille.html">Ratatouille</a></li>
+        <li class="recipe ice-creams"><a href="HTML-en/ice_creams/Red pepper sorbet and parmesan tiles.html">Red pepper sorbet and parmesan tiles</a></li>
+        <li class="recipe ice-creams"><a href="HTML-en/ice_creams/Rhubarb strawberry sorbet.html">Rhubarb strawberry sorbet</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Rice.html">Rice</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Sausage lenses.html">Sausage lenses</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Scone.html">Scone</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Semolina.html">Semolina</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Shortbread.html">Shortbread</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Shortcrust.html">Shortcrust</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Soft chocolate chocolate po.html">Soft chocolate chocolate po</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Soft dried tomatoes.html">Soft dried tomatoes</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Spinach.html">Spinach</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Squash gratin.html">Squash gratin</a></li>
+        <li class="recipe ice-creams"><a href="HTML-en/ice_creams/Stracciatella ice cream.html">Stracciatella ice cream</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Strawberry Charlotte.html">Strawberry Charlotte</a></li>
+        <li class="recipe ice-creams"><a href="HTML-en/ice_creams/Strawberry sorbet.html">Strawberry sorbet</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Tatin pie.html">Tatin pie</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Tiramisu at the speculos of Vinciane.html">Tiramisu at the speculos of Vinciane</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Tomato salad.html">Tomato salad</a></li>
+        <li class="recipe ice-creams"><a href="HTML-en/ice_creams/Vanilla ice cream.html">Vanilla ice cream</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Vegetable soup.html">Vegetable soup</a></li>
+        <li class="recipe basics"><a href="HTML-en/basics/Waffle paste.html">Waffle paste</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Wonder raspberry pistachio.html">Wonder raspberry pistachio</a></li>
+        <li class="recipe breads"><a href="HTML-en/breads/Yogurt.html">Yogurt</a></li>
+        <li class="recipe desserts"><a href="HTML-en/desserts/Yogurt cake.html">Yogurt cake</a></li>
+        <li class="recipe starters"><a href="HTML-en/starters/Zucchini.html">Zucchini</a></li>
+        <li class="recipe main-courses"><a href="HTML-en/main_courses/Zucchini crumble.html">Zucchini crumble</a></li>
+</ul>
+
+</body>
+
+<script>
+    function filter() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("searchBox");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("recipes");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (li[i].className.indexOf("recipe") == -1) {
+                continue;
+            }
+            if (txtValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().indexOf(filter) > -1) {
+                if (document.getElementById("basics").checked && li[i].className.indexOf("basics") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("starters").checked && li[i].className.indexOf("starters") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("main-courses").checked && li[i].className.indexOf("main-courses") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("desserts").checked && li[i].className.indexOf("desserts") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("ice-creams").checked && li[i].className.indexOf("ice-creams") > -1) {
+                    li[i].style.display = "";
+                } else if (document.getElementById("breads").checked && li[i].className.indexOf("breads") > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            } else {
+                li[i].style.display = "none";
+            }
+
+        }
+    }
+    filter();
+</script>
+
+</html>
