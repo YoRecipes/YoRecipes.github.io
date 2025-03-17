@@ -246,6 +246,45 @@ def translate_all_recipes(src_mega_folder, dest_mega_folder, translator=GoogleTr
         translate_recipes(src_folder, dest_folder, translator, lang)
     print(f'Translated {src_mega_folder}/* to {dest_mega_folder}/*')
 
+def create_index(html_mega_folder, index_file):
+    """Creates an index file with links to all html files in html_mega_folder
+
+    Args:
+        html_mega_folder (folder path)
+        index_file (file path)
+    """
+    # top html template
+    file_top = open('index_top.html', 'r', encoding='UTF8')
+    top_html = file_top.read()
+    file_top.close()
+    # bottom html template
+    file_bottom = open('index_bottom.html', 'r', encoding='UTF8')
+    bottom_html = file_bottom.read()
+    file_bottom.close()
+    # create the index file
+    file_build = open(index_file, 'w', encoding='UTF8')
+    file_build.write(top_html + '\n')
+    # li elements
+    li = []
+    for folder in os.listdir(html_mega_folder):
+        # skip if folder is a temp file
+        if folder[0] == '_':
+            continue
+        for file in os.listdir(os.path.join(html_mega_folder, folder)):
+            # skip if file is a temp file
+            if file[0] == '_':
+                continue
+            print(file)
+            name = file.replace('.html', '')
+            redirect = os.path.join(html_mega_folder, folder, file).replace("\\", "/")
+            print(name, redirect)
+            li.append( (unidecode(name), f'        <li class="recipe {folder.replace("_", "-")}"><a href="{redirect}">{name}</a></li>\n') )
+    li.sort()
+    for line in li:
+        file_build.write(line[1])
+    file_build.write(bottom_html)
+    print(f'Created {index_file}')
+
 
 if __name__ == "__main__":
     pass
