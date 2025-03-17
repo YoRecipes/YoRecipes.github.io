@@ -17,6 +17,27 @@ from unidecode import unidecode
 import json
 import os
 
+def convert_docx_to_pdf(docx_folder, pdf_folder):
+    """Converts all docx files in docx_folder to pdf files in pdf_folder
+
+    Args:
+        docx_folder (folder path)
+        pdf_folder (folder path)
+    """
+    # convert docx to pdf each file in docx_folder
+    for file in os.listdir(docx_folder):
+        # skip if file is a temp file
+        if file[0] == '_':
+            continue
+        pdf_path = os.path.join(pdf_folder, file.replace('.docx', '.pdf'))
+        docx_path = os.path.join(docx_folder, file)
+        # convert if pdf file does not exist or docx file is modified after pdf file was modified
+        if not os.path.exists(pdf_path) or os.path.getmtime(docx_path) > os.path.getmtime(pdf_path):
+            convert(docx_path, pdf_path)
+            print(f'Converted {docx_path} to {pdf_path}')
+        else:
+            print(f'Skipped conversion to PDF of {docx_path}')
+    print(f'Converted {docx_folder}/* to {pdf_folder}/*')
 
 if __name__ == "__main__":
     pass
