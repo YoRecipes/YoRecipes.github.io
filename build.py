@@ -177,5 +177,26 @@ def create_all_html(png_mega_folder, pdf_mega_folder, docx_mega_folder, html_meg
         print(f'Created {html_folder_path}/*')
     print(f'Created {html_mega_folder}/*')
 
+def translate_recipe(src, dest, translator=GoogleTranslator(source='fr', target='en'), lang='en-US'):
+    """Translates a recipe from src to dest
+
+    Args:
+        src (file path)
+        dest (file path)
+        translator: Translator object. Defaults to GoogleTranslator(source='fr', target='en').
+        lang: Language for docx spell check. Defaults to 'en-US'.
+    """
+    doc = docx.Document(src)
+    for para in doc.paragraphs:
+        para.text = translator.translate(para.text)
+        print('.', end='', flush=True)
+    styles_element  = doc.styles.element
+    rpr_default = styles_element.xpath('./w:docDefaults/w:rPrDefault/w:rPr')[0]
+    lang_default = rpr_default.xpath('w:lang')[0]
+    lang_default.set(docx.oxml.shared.qn('w:val'), lang)
+    doc.save(dest)
+    print(dest)
+
+
 if __name__ == "__main__":
     pass
