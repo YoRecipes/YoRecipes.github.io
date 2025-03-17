@@ -226,6 +226,26 @@ def translate_recipes(src_folder, dest_folder, translator=GoogleTranslator(sourc
             print(f'Skipped translation of {src}')
     print(f'Translated {src_folder}/* to {dest_folder}/*')
 
+def translate_all_recipes(src_mega_folder, dest_mega_folder, translator=GoogleTranslator(source='fr', target='en'), lang='en-US'):
+    """Translates recursively all recipes in src_mega_folder to dest_mega_folder
+
+    Args:
+        src_mega_folder (folder path)
+        dest_mega_folder (folder path)
+        translator: Translator object. Defaults to GoogleTranslator(source='fr', target='en').
+        lang: Language for docx spell check. Defaults to 'en-US'.
+    """
+    for folder in os.listdir(src_mega_folder):
+        # skip if folder is a temp file
+        if folder[0] == '_':
+            continue
+        src_folder = os.path.join(src_mega_folder, folder)
+        dest_folder = os.path.join(dest_mega_folder, folder)
+        if not os.path.exists(dest_folder):
+            os.makedirs(dest_folder)
+        translate_recipes(src_folder, dest_folder, translator, lang)
+    print(f'Translated {src_mega_folder}/* to {dest_mega_folder}/*')
+
 
 if __name__ == "__main__":
     pass
