@@ -266,6 +266,8 @@ def create_index(html_mega_folder, index_file):
     file_build.write(top_html + '\n')
     # li elements
     li = []
+    if not os.path.exists(html_mega_folder):
+        os.makedirs(html_mega_folder)
     for folder in os.listdir(html_mega_folder):
         # skip if folder is a temp file
         if folder[0] == '_':
@@ -309,4 +311,8 @@ if __name__ == "__main__":
     create_all_html('PNG-en', 'PDF-en', 'DOCX-en', 'HTML-en', 'index-en.html')
     create_index('HTML-en', 'index-en.html')
     print('ENGLISH: Done!')
+    print('\n'*3)
+
+    create_index('HTML-sp', 'index-sp.html')
+    print('SPANISH: Done!')
     print('\n'*3)
