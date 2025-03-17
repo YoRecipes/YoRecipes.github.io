@@ -287,4 +287,13 @@ def create_index(html_mega_folder, index_file):
 
 
 if __name__ == "__main__":
-    pass
+    ### French
+    # convert all docx to pdf
+    convert_all_docx_to_pdf('DOCX', 'PDF')
+    # convert all pdf to png
+    convert_all_pdf_to_png('PDF', 'PNG')
+    # create all html files
+    create_all_html('PNG', 'PDF', 'DOCX', 'HTML')
+    create_index('HTML', 'index.html')
+    print('Done!')
+    print('\n'*3)
