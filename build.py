@@ -132,6 +132,50 @@ def create_html(file_png, file_pdf, file_docx, file_html, file_index="index.html
     f.close()
     print(f'Created {file_html}')
 
+def create_all_html(png_mega_folder, pdf_mega_folder, docx_mega_folder, html_mega_folder, index_file="index.html", skip_existing=False):
+    """Creates recursively all html files in html_mega_folder
+    
+    Args:
+        png_mega_folder (folder path)
+        pdf_mega_folder (folder path)
+        docx_mega_folder (folder path)
+        html_mega_folder (folder path)
+        index_file (file path)
+    """
+    for folder in os.listdir(png_mega_folder):
+        # skip if folder is a temp file
+        if '\\_' in folder:
+            continue
+        png_folder_path = os.path.join(png_mega_folder, folder)
+        pdf_folder_path = os.path.join(pdf_mega_folder, folder)
+        docx_folder_path = os.path.join(docx_mega_folder, folder)
+        html_folder_path = os.path.join(html_mega_folder, folder)
+        if not os.path.exists(html_folder_path):
+            os.makedirs(html_folder_path)
+        for file in os.listdir(png_folder_path):
+            # skip if file is a temp file
+            if '\\_' in file:
+                continue
+            file_png = os.path.join(png_folder_path, file)
+            file_pdf = os.path.join(pdf_folder_path, file.replace('.png', '.pdf').replace('\\', '/'))
+            file_docx = os.path.join(docx_folder_path, file.replace('.png', '.docx').replace('\\', '/'))
+            file_html = os.path.join(html_folder_path, file.replace('.png', '.html').replace('\\', '/'))
+            # check if corresponding pdf and docx files exist
+            if not os.path.exists(file_pdf):
+                print(f'Error creating {file_html}: PDF file does not exist')
+                continue
+            if not os.path.exists(file_docx):
+                print(f'Error creating {file_html}: DOCX file does not exist')
+                continue
+            create_html(
+                file_png.replace('\\', '/'),\
+                file_pdf.replace('\\', '/'), \
+                file_docx.replace('\\', '/'), \
+                file_html.replace('\\', '/'), \
+                index_file, skip_existing
+            )
+        print(f'Created {html_folder_path}/*')
+    print(f'Created {html_mega_folder}/*')
 
 if __name__ == "__main__":
     pass
