@@ -16,3 +16,7 @@ from unidecode import unidecode
 # standard libraries
 import json
 import os
+
+
+if __name__ == "__main__":
+    pass
