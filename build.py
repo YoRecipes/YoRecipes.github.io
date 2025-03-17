@@ -101,6 +101,37 @@ def convert_all_pdf_to_png(pdf_mega_folder, png_mega_folder):
         convert_pdf_to_png(pdf_folder_path, png_folder_path)
     print(f'Converted {pdf_mega_folder}/* to {png_mega_folder}/*')
 
+def create_html(file_png, file_pdf, file_docx, file_html, file_index="index.html", skip_existing=False, title=None):
+    """Creates an html file with links to the png, pdf, and docx files
+    
+    Args:
+        file_png (file path)
+        file_pdf (file path)
+        file_docx (file path)
+        file_html (file path)
+    """
+    # skip if html file already exists
+    if os.path.exists(file_html) and skip_existing:
+        print(f'Skipped HTML creation of {file_html}')
+        return None
+    # read the html template
+    f = open("template.html", 'r', encoding='UTF8')
+    txt = f.read()
+    f.close()
+    # replace the placeholders with the actual file paths
+    txt = txt.replace('#*+file_pdf+*#', file_pdf)
+    txt = txt.replace('#*+file_docx+*#', file_docx)
+    txt = txt.replace('#*+file_png+*#', file_png)
+    txt = txt.replace('#*+file_index+*#', file_index)
+    if title is None:
+        title = file_png.split('/')[-1].replace('.png', '') + ' Recipe'
+    txt = txt.replace('#*+title+*#', title)
+    # write the new html file
+    f = open(file_html, 'w', encoding='UTF8')
+    f.write(txt)
+    f.close()
+    print(f'Created {file_html}')
+
 
 if __name__ == "__main__":
     pass
