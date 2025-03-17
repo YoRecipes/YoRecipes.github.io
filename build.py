@@ -58,5 +58,29 @@ def convert_all_docx_to_pdf(docx_mega_folder, pdf_mega_folder):
         convert_docx_to_pdf(docx_folder_path, pdf_folder_path)
     print(f'Converted {docx_mega_folder}/* to {pdf_mega_folder}/*')
 
+def convert_pdf_to_png(pdf_folder, png_folder):
+    """Converts all pdf files in pdf_folder to png files in png_folder"
+
+    Args:
+        pdf_folder (folder path)
+        png_folder (folder path)
+    """
+    # convert docx to pdf each file in docx_folder
+    for file in os.listdir(pdf_folder):
+        # skip if file is a temp file
+        if file[0] == '_':
+            continue
+        png_path = os.path.join(png_folder, file.replace('.pdf', '.png'))
+        pdf_path = os.path.join(pdf_folder, file)
+        # convert if pdf file does not exist or docx file is modified
+        if not os.path.exists(png_path) or os.path.getmtime(pdf_path) > os.path.getmtime(png_path):
+            images = convert_from_path(pdf_path)
+            image = images[0]
+            image.save(png_path)
+            print(f'Converted {pdf_path} to {png_path}')
+        else:
+            print(f'Skipped conversion to PNG of {pdf_path}')
+    print(f'Converted {pdf_folder}/* to {png_folder}/*')
+
 if __name__ == "__main__":
     pass
