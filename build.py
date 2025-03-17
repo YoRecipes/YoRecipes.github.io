@@ -316,3 +316,7 @@ if __name__ == "__main__":
     create_index('HTML-sp', 'index-sp.html')
     print('SPANISH: Done!')
     print('\n'*3)
+    
+    create_index('HTML-it', 'index-it.html')
+    print('ITALIAN: Done!')
+    print('\n'*3)
