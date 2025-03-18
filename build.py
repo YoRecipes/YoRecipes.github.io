@@ -214,8 +214,8 @@ def translate_recipes(src_folder, dest_folder, translator=GoogleTranslator(sourc
         src = os.path.join(src_folder, src_file_name)
         src_file_name = src_file_name.replace('.docx', '')
         dest_file_name = None
-        if src_file_name in MANUAL_TRANSLATIONS and lang in MANUAL_TRANSLATIONS[src_file_name]:
-            dest_file_name = MANUAL_TRANSLATIONS[src_file_name][lang] + '.docx'
+        if lang in MANUAL_TRANSLATIONS and src_file_name in MANUAL_TRANSLATIONS[lang]:
+            dest_file_name = MANUAL_TRANSLATIONS[lang][src_file_name] + '.docx'
         else:
             dest_file_name = translator.translate(src_file_name) + '.docx'
         dest = os.path.join(dest_folder, dest_file_name)
