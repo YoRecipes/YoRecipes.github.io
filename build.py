@@ -258,9 +258,12 @@ def create_index(lang='fr-FR', html_mega_folder=None, index_file=None):
     # default values
     lang_ = lang.split('-')[0]
     if html_mega_folder is None:
-        html_mega_folder = 'HTML' + lang_
+        if lang_ == 'fr':
+            html_mega_folder = 'HTML'
+        else:
+            html_mega_folder = 'HTML-' + lang_
     if index_file is None:
-        index_file = 'index-' + lang_ +'.html'
+        index_file = lang_ +'.html'
     # load manual translations
     f = open('manual_translations.json', 'r', encoding='UTF8')
     MANUAL_TRANSLATIONS = json.load(f)[lang]
@@ -314,6 +317,7 @@ if __name__ == "__main__":
     # create all html files
     create_all_html('PNG', 'PDF', 'DOCX', 'HTML')
     create_index('fr-FR')
+    create_index('fr-FR', index_file='index.html')
     print('Done!')
     print('\n'*3)
 
