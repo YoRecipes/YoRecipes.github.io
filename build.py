@@ -246,13 +246,20 @@ def translate_all_recipes(src_mega_folder, dest_mega_folder, translator=GoogleTr
         translate_recipes(src_folder, dest_folder, translator, lang)
     print(f'Translated {src_mega_folder}/* to {dest_mega_folder}/*')
 
-def create_index(html_mega_folder, index_file):
+def create_index(lang='fr-FR', html_mega_folder=None, index_file=None):
     """Creates an index file with links to all html files in html_mega_folder
 
     Args:
+        lang: Language for the index file. Defaults to french.
         html_mega_folder (folder path)
         index_file (file path)
     """
+    # default values
+    lang_ = lang.split('-')[0]
+    if html_mega_folder is None:
+        html_mega_folder = 'HTML' + lang_
+    if index_file is None:
+        index_file = 'index-' + lang_ +'.html'
     # top html template
     file_top = open('index_top.html', 'r', encoding='UTF8')
     top_html = file_top.read()
