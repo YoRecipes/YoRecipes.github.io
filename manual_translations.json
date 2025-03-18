@@ -1,11 +1,41 @@
 {
-    "Moelleux au Chocolat de Mamie PO": {
-        "en-US": "Grandma PO's Soft Chocolate Cake"
+    "fr-FR": {
+        "Basics": "Basiques",
+        "Breads": "Pains",
+        "Desserts": "Desserts",
+        "IceCreams": "Glaces",
+        "MainCourses": "Plats Principaux",
+        "Starters": "Entrées",
+        "Search": "Chercher une recette..."
     },
-    "Muqueca de Peixe": {
-        "en-US": "Fish Muqueca"
+    "en-US": {
+        "Basics": "Basics",
+        "Breads": "Breads",
+        "Desserts": "Desserts",
+        "IceCreams": "Ice Creams",
+        "MainCourses": "Main Courses",
+        "Starters": "Starters",
+        "Search": "Search for a recipe...",
+        "Moelleux au Chocolat de Mamie PO": "Grandma PO's Soft Chocolate Cake",
+        "Muqueca de Peixe": "Fish Muqueca",
+        "Salade Concombre Pomme Avocat": "Cucumber Apple Avocado Salad"
     },
-    "Salade Concombre Pomme Avocat": {
-        "en-US": "Cucumber Apple Avocado Salad"
+    "sp-ES": {
+        "Basics": "Basics",
+        "Breads": "Breads",
+        "Desserts": "Desserts",
+        "IceCreams": "Ice Creams",
+        "MainCourses": "Main Courses",
+        "Starters": "Starters",
+        "Search": "Search..."
+    },
+    "it-IT": {
+        "Basics": "Basics",
+        "Breads": "Breads",
+        "Desserts": "Desserts",
+        "IceCreams": "Ice Creams",
+        "MainCourses": "Main Courses",
+        "Starters": "Starters",
+        "Search": "Search..."
     }
 }
