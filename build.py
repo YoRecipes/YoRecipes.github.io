@@ -260,10 +260,19 @@ def create_index(lang='fr-FR', html_mega_folder=None, index_file=None):
         html_mega_folder = 'HTML' + lang_
     if index_file is None:
         index_file = 'index-' + lang_ +'.html'
+    # load manual translations
+    f = open('manual_translations.json', 'r', encoding='UTF8')
+    MANUAL_TRANSLATIONS = json.load(f)[lang]
+    f.close()
     # top html template
     file_top = open('index_top.html', 'r', encoding='UTF8')
     top_html = file_top.read()
     file_top.close()
+    # replce {{var}} in template with the actual values
+    for var in re.findall(r'{{\w+}}', top_html):
+        var_ = var.replace('{{', '').replace('}}', '')
+        if var_ in MANUAL_TRANSLATIONS:
+            top_html = top_html.replace(var, MANUAL_TRANSLATIONS[var_])
     # bottom html template
     file_bottom = open('index_bottom.html', 'r', encoding='UTF8')
     bottom_html = file_bottom.read()
