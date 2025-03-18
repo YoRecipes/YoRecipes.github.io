@@ -16,6 +16,7 @@ from unidecode import unidecode
 # standard libraries
 import json
 import os
+import re
 
 def convert_docx_to_pdf(docx_folder, pdf_folder):
     """Converts all docx files in docx_folder to pdf files in pdf_folder
@@ -312,7 +313,7 @@ if __name__ == "__main__":
     convert_all_pdf_to_png('PDF', 'PNG')
     # create all html files
     create_all_html('PNG', 'PDF', 'DOCX', 'HTML')
-    create_index('HTML', 'index.html')
+    create_index('fr-FR')
     print('Done!')
     print('\n'*3)
 
@@ -325,14 +326,14 @@ if __name__ == "__main__":
     convert_all_pdf_to_png('PDF-en', 'PNG-en')
     # create all html files
     create_all_html('PNG-en', 'PDF-en', 'DOCX-en', 'HTML-en', 'index-en.html')
-    create_index('HTML-en', 'index-en.html')
+    create_index('en-US')
     print('ENGLISH: Done!')
     print('\n'*3)
 
-    create_index('HTML-sp', 'index-sp.html')
+    create_index('sp-ES')
     print('SPANISH: Done!')
     print('\n'*3)
     
-    create_index('HTML-it', 'index-it.html')
+    create_index('it-IT')
     print('ITALIAN: Done!')
     print('\n'*3)
