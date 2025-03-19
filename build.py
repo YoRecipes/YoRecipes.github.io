@@ -216,15 +216,20 @@ def translate_recipes(src_folder, dest_folder, translator=GoogleTranslator(sourc
         src_file_name = src_file_name.replace('.docx', '')
         dest_file_name = None
         if lang in MANUAL_TRANSLATIONS and src_file_name in MANUAL_TRANSLATIONS[lang]:
-            dest_file_name = MANUAL_TRANSLATIONS[lang][src_file_name] + '.docx'
+            dest_file_name = MANUAL_TRANSLATIONS[lang][src_file_name]
         else:
-            dest_file_name = translator.translate(src_file_name) + '.docx'
-        dest = os.path.join(dest_folder, dest_file_name)
+            dest_file_name = translator.translate(src_file_name)
+            MANUAL_TRANSLATIONS[lang][src_file_name] = dest_file_name
+        dest = os.path.join(dest_folder, dest_file_name + '.docx')
         # translate if destination file does not exist or source file is modified
         if not os.path.exists(dest) or os.path.getmtime(src) > os.path.getmtime(dest):
             translate_recipe(src, dest, translator, lang)
         else:
             print(f'Skipped translation of {src}')
+    # save MANUAL_TRANSLATIONS
+    f = open('manual_translations.json', 'w', encoding='UTF8')
+    json.dump(MANUAL_TRANSLATIONS, f, indent=2, ensure_ascii=True)
+    f.close()
     print(f'Translated {src_folder}/* to {dest_folder}/*')
 
 def translate_all_recipes(src_mega_folder, dest_mega_folder, translator=GoogleTranslator(source='fr', target='en'), lang='en-US'):
@@ -315,7 +320,7 @@ if __name__ == "__main__":
     # convert all pdf to png
     convert_all_pdf_to_png('PDF', 'PNG')
     # create all html files
-    create_all_html('PNG', 'PDF', 'DOCX', 'HTML')
+    create_all_html('PNG', 'PDF', 'DOCX', 'HTML', 'fr.html')
     create_index('fr-FR')
     create_index('fr-FR', index_file='index.html')
     print('Done!')
@@ -329,7 +334,7 @@ if __name__ == "__main__":
     # convert all pdf to png
     convert_all_pdf_to_png('PDF-en', 'PNG-en')
     # create all html files
-    create_all_html('PNG-en', 'PDF-en', 'DOCX-en', 'HTML-en', 'index-en.html')
+    create_all_html('PNG-en', 'PDF-en', 'DOCX-en', 'HTML-en', 'en.html')
     create_index('en-US')
     print('ENGLISH: Done!')
     print('\n'*3)
