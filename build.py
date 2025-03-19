@@ -305,7 +305,7 @@ def create_index(lang='fr-FR', html_mega_folder=None, index_file=None):
             name = file.replace('.html', '')
             redirect = os.path.join(html_mega_folder, folder, file).replace("\\", "/")
             print(name, redirect)
-            li.append( (unidecode(name), f'        <li class="recipe {folder.replace("_", "-")}"><a href="{redirect}">{name}</a></li>\n') )
+            li.append( (unidecode(name), f'        <li class="recipe {folder.replace("_", "-")}"><a href="{redirect}"><span class="recipe {folder.replace("_", "-")}">{name}</span></a></li>\n') )
     li.sort()
     for line in li:
         file_build.write(line[1])

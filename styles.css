@@ -44,7 +44,6 @@ label {
     display: inline-block;
     padding: 0.25em 0.5em;
     margin: 0.1em;
-    border: 1px solid #ccc;
     border-radius: 0.5em;
     cursor: pointer;
     user-select: none;
@@ -63,34 +62,23 @@ ul {
     width: 15.5em;
 }
 
-label[for="basics"],
-.basics a {
+.basics {
     color: #002060;
 }
-
-label[for="starters"],
-.starters a {
+.starters {
     color: #e36c0a;
 }
-
-label[for="main-courses"],
-.main-courses a {
+.main-courses {
     color: #00b050;
     color: #c00000;
 }
-
-label[for="desserts"],
-.desserts a {
+.desserts {
     color: #0070c0;
 }
-
-label[for="ice-creams"],
-.ice-creams a {
+.ice-creams {
     color: #5f497a;
 }
-
-label[for="breads"],
-.breads a {
+.breads {
     color: #8A4500;
 }
 
