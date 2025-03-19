@@ -6,127 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="logo.svg" type="image/svg+xml">
     <title>Recipes!</title>
-    <style>
-        @font-face {
-            font-family: monotypeCorsiva;
-            src: url(monotype-corsiva.ttf);
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            margin: 0;
-            padding: 0;
-            padding-top: 2em;
-            font-family: monotypeCorsiva;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin: 0.2em 0 0 0;
-        }
-
-        #recipe-types {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 1em 0em;
-            user-select: none;
-        }
-
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        input[type="checkbox"]:not(:checked)+label {
-            background-color: #f1f1f1;
-        }
-
-        input[type="checkbox"]:checked+label {
-            background-color: #ccc;
-        }
-
-        label {
-            display: inline-block;
-            padding: 0.25em 0.5em;
-            margin: 0.1em;
-            border: 1px solid #ccc;
-            border-radius: 0.5em;
-            cursor: pointer;
-            user-select: none;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            width: 15.5em;
-        }
-
-        label[for="basics"],
-        .basics a {
-            color: #002060;
-        }
-
-        label[for="starters"],
-        .starters a {
-            color: #e36c0a;
-        }
-
-        label[for="main-courses"],
-        .main-courses a {
-            color: #00b050;
-            color: #c00000;
-        }
-
-        label[for="desserts"],
-        .desserts a {
-            color: #0070c0;
-        }
-
-        label[for="ice-creams"],
-        .ice-creams a {
-            color: #5f497a;
-        }
-
-        label[for="breads"],
-        .breads a {
-            color: #8A4500;
-        }
-
-        nav {
-            font-family: Arial, sans-serif;
-            position: absolute;
-            display: flex;
-            top: 0;
-            right: 0;
-            margin-top: 0.2em;
-            margin-right: 0.4em;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 0;
-            margin: 0.1em;
-        }
-
-        nav a img {
-            height: 1.6em;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -135,116 +15,118 @@
         <a href="en.html"><img src="en.png" alt="🇬🇧"></a>
         <a href="sp.html"><img src="sp.png" alt="🇪🇸"></a>
         <a href="it.html"><img src="it.png" alt="🇮🇹"></a>
+        <button id="light-theme" class="theme-button">🌞</button>
+        <button id="dark-theme" class="theme-button">🌚</button>
     </nav>
-    <img src="logo.svg" alt="logo" width="200" height="200">
+    <img id="logo" src="logo.svg" alt="logo" width="200" height="200">
     <h1>Yo! Recipes!</h1>
     <div id="recipe-types">
-        <input type="checkbox" id="basics" onclick="filter()" checked><label for="basics">Basiques</label>
-        <input type="checkbox" id="starters" onclick="filter()" checked><label for="starters">Entrées</label>
-        <input type="checkbox" id="main-courses" onclick="filter()" checked><label for="main-courses">Plats Principaux</label>
-        <input type="checkbox" id="desserts" onclick="filter()" checked><label for="desserts">Desserts</label>
-        <input type="checkbox" id="ice-creams" onclick="filter()" checked><label for="ice-creams">Glaces</label>
-        <input type="checkbox" id="breads" onclick="filter()" checked><label for="breads">Pains</label>
+        <input type="checkbox" id="basics" onclick="filter()" checked><label for="basics" class="basics">Basiques</label>
+        <input type="checkbox" id="starters" onclick="filter()" checked><label for="starters" class="starters">Entrées</label>
+        <input type="checkbox" id="main-courses" onclick="filter()" checked><label for="main-courses" class="main-courses">Plats Principaux</label>
+        <input type="checkbox" id="desserts" onclick="filter()" checked><label for="desserts" class="desserts">Desserts</label>
+        <input type="checkbox" id="ice-creams" onclick="filter()" checked><label for="ice-creams" class="ice-creams">Glaces</label>
+        <input type="checkbox" id="breads" onclick="filter()" checked><label for="breads" class="breads">Pains</label>
     </div>
     <input type="text" id="searchBox" onkeyup="filter()" placeholder="Chercher une recette...">
     <ul id="recipes">
-        <li class="recipe desserts"><a href="HTML/desserts/Banana Bread.html">Banana Bread</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Biscuits à la Pistache.html">Biscuits à la Pistache</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Blanquette Exotique.html">Blanquette Exotique</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Boeuf Bourguignon.html">Boeuf Bourguignon</a></li>
-        <li class="recipe breads"><a href="HTML/breads/Brioche.html">Brioche</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Brownie.html">Brownie</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Bûche de Noël de Mémée.html">Bûche de Noël de Mémée</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Cabillaud et sa Sauce Mamie PO.html">Cabillaud et sa Sauce Mamie PO</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Cake au Citron.html">Cake au Citron</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Cannelés.html">Cannelés</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Canneles Pesto Parmesan.html">Canneles Pesto Parmesan</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Carottes Braisées.html">Carottes Braisées</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Charlotte Poire Chocolat.html">Charlotte Poire Chocolat</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Charlotte aux Fraises.html">Charlotte aux Fraises</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Chili Con Carne.html">Chili Con Carne</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Chocolate Chips and Blueberries Muffins.html">Chocolate Chips and Blueberries Muffins</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Chouquettes.html">Chouquettes</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Clafoutis.html">Clafoutis</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Compote de Pommes.html">Compote de Pommes</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Cookies Classiques.html">Cookies Classiques</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Cookies Pistache Chocolat.html">Cookies Pistache Chocolat</a></li>
-        <li class="recipe ice-creams"><a href="HTML/ice_creams/Crème Glacée Banane.html">Crème Glacée Banane</a></li>
-        <li class="recipe ice-creams"><a href="HTML/ice_creams/Crème Glacée Vanille.html">Crème Glacée Vanille</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Crème Patissière.html">Crème Patissière</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Crumble à la Courgette.html">Crumble à la Courgette</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Crumble aux Pommes.html">Crumble aux Pommes</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Epinards.html">Epinards</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Filet Mignon au Curry.html">Filet Mignon au Curry</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Financiers aux Amandes.html">Financiers aux Amandes</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Flans aux Œufs.html">Flans aux Œufs</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Garlic and Cheese Drop Biscuits.html">Garlic and Cheese Drop Biscuits</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Gateau Ananas.html">Gateau Ananas</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Gateau Chocolat Mamie Lisette.html">Gateau Chocolat Mamie Lisette</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Gateau au Yaourt.html">Gateau au Yaourt</a></li>
-        <li class="recipe ice-creams"><a href="HTML/ice_creams/Glace Stracciatella.html">Glace Stracciatella</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Gratin de Chou-Fleur.html">Gratin de Chou-Fleur</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Gratin de Courge.html">Gratin de Courge</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Hachi Parmentier.html">Hachi Parmentier</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Lasagnes Bolognaise.html">Lasagnes Bolognaise</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Lentilles Saucisse.html">Lentilles Saucisse</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Marinade pour de l’Échine de Porc.html">Marinade pour de l’Échine de Porc</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Mayonnaise.html">Mayonnaise</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Merveille Framboises Pistache.html">Merveille Framboises Pistache</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Moelleux Tomates Séchées.html">Moelleux Tomates Séchées</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Moelleux au Chocolat de Mamie PO.html">Moelleux au Chocolat de Mamie PO</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Mousse Betterave.html">Mousse Betterave</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Mousse au Chocolat.html">Mousse au Chocolat</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Muqueca de Peixe.html">Muqueca de Peixe</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Œufs Mimosa.html">Œufs Mimosa</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Osso Bucco de veau.html">Osso Bucco de veau</a></li>
-        <li class="recipe breads"><a href="HTML/breads/Pain Français.html">Pain Français</a></li>
-        <li class="recipe breads"><a href="HTML/breads/Pain au blé complet.html">Pain au blé complet</a></li>
-        <li class="recipe breads"><a href="HTML/breads/Pain aux Céréales.html">Pain aux Céréales</a></li>
-        <li class="recipe breads"><a href="HTML/breads/Pain de base.html">Pain de base</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Pao de Queijo.html">Pao de Queijo</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Pâte Brisée.html">Pâte Brisée</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Pâte Sablée.html">Pâte Sablée</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Pâte à Crêpes.html">Pâte à Crêpes</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Pâte à Gaufres.html">Pâte à Gaufres</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Pâte à Pancakes.html">Pâte à Pancakes</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Pâte à Pizza.html">Pâte à Pizza</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Pâte de Pistache.html">Pâte de Pistache</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Pavlova Fruits Rouges.html">Pavlova Fruits Rouges</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Petits Pains au Lait.html">Petits Pains au Lait</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Pommes de Terre.html">Pommes de Terre</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Quiche Lorraine.html">Quiche Lorraine</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Ratatouille.html">Ratatouille</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Risotto Champignons.html">Risotto Champignons</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Riz.html">Riz</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Salade Concombre Pomme Avocat.html">Salade Concombre Pomme Avocat</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Salade de Concombres.html">Salade de Concombres</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Salade de Tomates.html">Salade de Tomates</a></li>
-        <li class="recipe basics"><a href="HTML/basics/Sauce Béchamel.html">Sauce Béchamel</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Saumon à la Provençale.html">Saumon à la Provençale</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Saumon aux Poivrons.html">Saumon aux Poivrons</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Scones.html">Scones</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Semoule.html">Semoule</a></li>
-        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet Fraise Rhubarbe.html">Sorbet Fraise Rhubarbe</a></li>
-        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet Poivrons Rouges et Tuiles Parmesan.html">Sorbet Poivrons Rouges et Tuiles Parmesan</a></li>
-        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet à la Fraise.html">Sorbet à la Fraise</a></li>
-        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet au Chocolat.html">Sorbet au Chocolat</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Soupe au Pistou.html">Soupe au Pistou</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Soupe de Légume.html">Soupe de Légume</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Soupe de Pêches.html">Soupe de Pêches</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Taboulé Libanais.html">Taboulé Libanais</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Tacos de Marie.html">Tacos de Marie</a></li>
-        <li class="recipe main-courses"><a href="HTML/main_courses/Tajine d'Agneau.html">Tajine d'Agneau</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Tapenade Olives Noires.html">Tapenade Olives Noires</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Tarte Tatin.html">Tarte Tatin</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Tarte au Citron Meringuée.html">Tarte au Citron Meringuée</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Tartes aux Fruits.html">Tartes aux Fruits</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Tiramisu Classique.html">Tiramisu Classique</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Tiramisu aux Spéculos de Vinciane.html">Tiramisu aux Spéculos de Vinciane</a></li>
-        <li class="recipe desserts"><a href="HTML/desserts/Tuiles aux Amandes.html">Tuiles aux Amandes</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Velouté de Courge d'Automne.html">Velouté de Courge d'Automne</a></li>
-        <li class="recipe starters"><a href="HTML/starters/Velouté de Courgette.html">Velouté de Courgette</a></li>
-        <li class="recipe breads"><a href="HTML/breads/Yaourt.html">Yaourt</a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Banana Bread.html"><span class="recipe desserts">Banana Bread</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Biscuits à la Pistache.html"><span class="recipe desserts">Biscuits à la Pistache</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Blanquette Exotique.html"><span class="recipe main-courses">Blanquette Exotique</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Boeuf Bourguignon.html"><span class="recipe main-courses">Boeuf Bourguignon</span></a></li>
+        <li class="recipe breads"><a href="HTML/breads/Brioche.html"><span class="recipe breads">Brioche</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Brownie.html"><span class="recipe desserts">Brownie</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Bûche de Noël de Mémée.html"><span class="recipe desserts">Bûche de Noël de Mémée</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Cabillaud et sa Sauce Mamie PO.html"><span class="recipe main-courses">Cabillaud et sa Sauce Mamie PO</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Cake au Citron.html"><span class="recipe desserts">Cake au Citron</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Cannelés.html"><span class="recipe desserts">Cannelés</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Canneles Pesto Parmesan.html"><span class="recipe starters">Canneles Pesto Parmesan</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Carottes Braisées.html"><span class="recipe main-courses">Carottes Braisées</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Charlotte Poire Chocolat.html"><span class="recipe desserts">Charlotte Poire Chocolat</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Charlotte aux Fraises.html"><span class="recipe desserts">Charlotte aux Fraises</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Chili Con Carne.html"><span class="recipe main-courses">Chili Con Carne</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Chocolate Chips and Blueberries Muffins.html"><span class="recipe desserts">Chocolate Chips and Blueberries Muffins</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Chouquettes.html"><span class="recipe desserts">Chouquettes</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Clafoutis.html"><span class="recipe desserts">Clafoutis</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Compote de Pommes.html"><span class="recipe desserts">Compote de Pommes</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Cookies Classiques.html"><span class="recipe desserts">Cookies Classiques</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Cookies Pistache Chocolat.html"><span class="recipe desserts">Cookies Pistache Chocolat</span></a></li>
+        <li class="recipe ice-creams"><a href="HTML/ice_creams/Crème Glacée Banane.html"><span class="recipe ice-creams">Crème Glacée Banane</span></a></li>
+        <li class="recipe ice-creams"><a href="HTML/ice_creams/Crème Glacée Vanille.html"><span class="recipe ice-creams">Crème Glacée Vanille</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Crème Patissière.html"><span class="recipe basics">Crème Patissière</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Crumble à la Courgette.html"><span class="recipe main-courses">Crumble à la Courgette</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Crumble aux Pommes.html"><span class="recipe desserts">Crumble aux Pommes</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Epinards.html"><span class="recipe main-courses">Epinards</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Filet Mignon au Curry.html"><span class="recipe main-courses">Filet Mignon au Curry</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Financiers aux Amandes.html"><span class="recipe desserts">Financiers aux Amandes</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Flans aux Œufs.html"><span class="recipe desserts">Flans aux Œufs</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Garlic and Cheese Drop Biscuits.html"><span class="recipe starters">Garlic and Cheese Drop Biscuits</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Gateau Ananas.html"><span class="recipe desserts">Gateau Ananas</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Gateau Chocolat Mamie Lisette.html"><span class="recipe desserts">Gateau Chocolat Mamie Lisette</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Gateau au Yaourt.html"><span class="recipe desserts">Gateau au Yaourt</span></a></li>
+        <li class="recipe ice-creams"><a href="HTML/ice_creams/Glace Stracciatella.html"><span class="recipe ice-creams">Glace Stracciatella</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Gratin de Chou-Fleur.html"><span class="recipe main-courses">Gratin de Chou-Fleur</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Gratin de Courge.html"><span class="recipe main-courses">Gratin de Courge</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Hachi Parmentier.html"><span class="recipe main-courses">Hachi Parmentier</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Lasagnes Bolognaise.html"><span class="recipe main-courses">Lasagnes Bolognaise</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Lentilles Saucisse.html"><span class="recipe main-courses">Lentilles Saucisse</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Marinade pour de l’Échine de Porc.html"><span class="recipe main-courses">Marinade pour de l’Échine de Porc</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Mayonnaise.html"><span class="recipe basics">Mayonnaise</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Merveille Framboises Pistache.html"><span class="recipe desserts">Merveille Framboises Pistache</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Moelleux Tomates Séchées.html"><span class="recipe starters">Moelleux Tomates Séchées</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Moelleux au Chocolat de Mamie PO.html"><span class="recipe desserts">Moelleux au Chocolat de Mamie PO</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Mousse Betterave.html"><span class="recipe starters">Mousse Betterave</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Mousse au Chocolat.html"><span class="recipe desserts">Mousse au Chocolat</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Muqueca de Peixe.html"><span class="recipe main-courses">Muqueca de Peixe</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Œufs Mimosa.html"><span class="recipe starters">Œufs Mimosa</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Osso Bucco de veau.html"><span class="recipe main-courses">Osso Bucco de veau</span></a></li>
+        <li class="recipe breads"><a href="HTML/breads/Pain Français.html"><span class="recipe breads">Pain Français</span></a></li>
+        <li class="recipe breads"><a href="HTML/breads/Pain au blé complet.html"><span class="recipe breads">Pain au blé complet</span></a></li>
+        <li class="recipe breads"><a href="HTML/breads/Pain aux Céréales.html"><span class="recipe breads">Pain aux Céréales</span></a></li>
+        <li class="recipe breads"><a href="HTML/breads/Pain de base.html"><span class="recipe breads">Pain de base</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Pao de Queijo.html"><span class="recipe starters">Pao de Queijo</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Pâte Brisée.html"><span class="recipe basics">Pâte Brisée</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Pâte Sablée.html"><span class="recipe basics">Pâte Sablée</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Pâte à Crêpes.html"><span class="recipe basics">Pâte à Crêpes</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Pâte à Gaufres.html"><span class="recipe basics">Pâte à Gaufres</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Pâte à Pancakes.html"><span class="recipe basics">Pâte à Pancakes</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Pâte à Pizza.html"><span class="recipe basics">Pâte à Pizza</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Pâte de Pistache.html"><span class="recipe basics">Pâte de Pistache</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Pavlova Fruits Rouges.html"><span class="recipe desserts">Pavlova Fruits Rouges</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Petits Pains au Lait.html"><span class="recipe desserts">Petits Pains au Lait</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Pommes de Terre.html"><span class="recipe main-courses">Pommes de Terre</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Quiche Lorraine.html"><span class="recipe main-courses">Quiche Lorraine</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Ratatouille.html"><span class="recipe main-courses">Ratatouille</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Risotto Champignons.html"><span class="recipe main-courses">Risotto Champignons</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Riz.html"><span class="recipe main-courses">Riz</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Salade Concombre Pomme Avocat.html"><span class="recipe starters">Salade Concombre Pomme Avocat</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Salade de Concombres.html"><span class="recipe starters">Salade de Concombres</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Salade de Tomates.html"><span class="recipe starters">Salade de Tomates</span></a></li>
+        <li class="recipe basics"><a href="HTML/basics/Sauce Béchamel.html"><span class="recipe basics">Sauce Béchamel</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Saumon à la Provençale.html"><span class="recipe main-courses">Saumon à la Provençale</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Saumon aux Poivrons.html"><span class="recipe main-courses">Saumon aux Poivrons</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Scones.html"><span class="recipe desserts">Scones</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Semoule.html"><span class="recipe main-courses">Semoule</span></a></li>
+        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet Fraise Rhubarbe.html"><span class="recipe ice-creams">Sorbet Fraise Rhubarbe</span></a></li>
+        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet Poivrons Rouges et Tuiles Parmesan.html"><span class="recipe ice-creams">Sorbet Poivrons Rouges et Tuiles Parmesan</span></a></li>
+        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet à la Fraise.html"><span class="recipe ice-creams">Sorbet à la Fraise</span></a></li>
+        <li class="recipe ice-creams"><a href="HTML/ice_creams/Sorbet au Chocolat.html"><span class="recipe ice-creams">Sorbet au Chocolat</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Soupe au Pistou.html"><span class="recipe starters">Soupe au Pistou</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Soupe de Légume.html"><span class="recipe starters">Soupe de Légume</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Soupe de Pêches.html"><span class="recipe desserts">Soupe de Pêches</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Taboulé Libanais.html"><span class="recipe main-courses">Taboulé Libanais</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Tacos de Marie.html"><span class="recipe main-courses">Tacos de Marie</span></a></li>
+        <li class="recipe main-courses"><a href="HTML/main_courses/Tajine d'Agneau.html"><span class="recipe main-courses">Tajine d'Agneau</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Tapenade Olives Noires.html"><span class="recipe starters">Tapenade Olives Noires</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Tarte Tatin.html"><span class="recipe desserts">Tarte Tatin</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Tarte au Citron Meringuée.html"><span class="recipe desserts">Tarte au Citron Meringuée</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Tartes aux Fruits.html"><span class="recipe desserts">Tartes aux Fruits</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Tiramisu Classique.html"><span class="recipe desserts">Tiramisu Classique</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Tiramisu aux Spéculos de Vinciane.html"><span class="recipe desserts">Tiramisu aux Spéculos de Vinciane</span></a></li>
+        <li class="recipe desserts"><a href="HTML/desserts/Tuiles aux Amandes.html"><span class="recipe desserts">Tuiles aux Amandes</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Velouté de Courge d'Automne.html"><span class="recipe starters">Velouté de Courge d'Automne</span></a></li>
+        <li class="recipe starters"><a href="HTML/starters/Velouté de Courgette.html"><span class="recipe starters">Velouté de Courgette</span></a></li>
+        <li class="recipe breads"><a href="HTML/breads/Yaourt.html"><span class="recipe breads">Yaourt</span></a></li>
 </ul>
 
 </body>
@@ -286,5 +168,6 @@
     }
     filter();
 </script>
+<script src="script.js"></script>
 
 </html>
