@@ -1,0 +1,119 @@
+@font-face {
+    font-family: monotypeCorsiva;
+    src: url(monotype-corsiva.ttf);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    padding-top: 2em;
+    font-family: monotypeCorsiva;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin: 0.2em 0 0 0;
+}
+
+#recipe-types {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1em 0em;
+    user-select: none;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:not(:checked)+label {
+    background-color: #f1f1f1;
+}
+
+input[type="checkbox"]:checked+label {
+    background-color: #ccc;
+}
+
+label {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    margin: 0.1em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 15.5em;
+}
+
+label[for="basics"],
+.basics a {
+    color: #002060;
+}
+
+label[for="starters"],
+.starters a {
+    color: #e36c0a;
+}
+
+label[for="main-courses"],
+.main-courses a {
+    color: #00b050;
+    color: #c00000;
+}
+
+label[for="desserts"],
+.desserts a {
+    color: #0070c0;
+}
+
+label[for="ice-creams"],
+.ice-creams a {
+    color: #5f497a;
+}
+
+label[for="breads"],
+.breads a {
+    color: #8A4500;
+}
+
+nav {
+    font-family: Arial, sans-serif;
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    margin-top: 0.2em;
+    margin-right: 0.4em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0.1em;
+}
+
+nav a img {
+    height: 1.6em;
+}
