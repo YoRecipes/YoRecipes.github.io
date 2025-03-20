@@ -178,15 +178,21 @@ nav button{
     background-color: #1e1e1e;
 }
 
+.dark-mode .recipe-image
 .dark-mode .basics, 
 .dark-mode .starters,
 .dark-mode .main-courses,
 .dark-mode .desserts,
 .dark-mode .ice-creams,
 .dark-mode .breads{
-    filter: invert(1) hue-rotate(180deg) brightness(0.65);
+    filter: invert(1) hue-rotate(180deg);
 }
 
-.dark-mode .recipe-image{
-    filter: invert(1) hue-rotate(180deg);
+.dark-mode a .basics, 
+.dark-mode a .starters,
+.dark-mode a .main-courses,
+.dark-mode a .desserts,
+.dark-mode a .ice-creams,
+.dark-mode a .breads{
+    filter: none;
 }
