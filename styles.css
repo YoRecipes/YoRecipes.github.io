@@ -173,35 +173,41 @@ nav button{
     background-color: black;
 }
 
-.dark-mode .basics {
-    /* color: #00359E; */
+/* .dark-mode .basics {
+    color: #00359E;
     color: #9EBEFF;
     color: #58C8C3;
+    color: #ffdf9f;
 }
 .dark-mode .starters {
-    /* color: #e36c0a; */
+    color: #e36c0a;
     color: #F27C1B;
     color: #EE9B56;
+    color: #1b93f5;
 }
 .dark-mode .main-courses {
-    /* color: #00b050; */
+    color: #00b050;
     color: #4FFF9E;
-    /* color: #c00000; */
+    color: #c00000;
     color: #FF4040;
     color: #FD6767;
+    color: #3effff;
 }
 .dark-mode .desserts {
-    /* color: #0070c0; */
+    color: #0070c0;
     color: #40AFFF;
     color: #74C5FF;
+    color: #ff8f3e;
 }
 .dark-mode .ice-creams {
-    /* color: #5f497a; */
+    color: #5f497a;
     color: #4B3566;
     color: #BB83FF;
+    color: #9fb585;
 }
 .dark-mode .breads {
-    /* color: #8A4500; */
+    color: #8A4500;
     color: #FFBA75;
     color: #FFFD97;
-}
+    color: #74b9ff;
+} */
