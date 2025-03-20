@@ -71,7 +71,7 @@ input[type="checkbox"]:checked+label {
     background-color: #ccc;
 }
 input[type="checkbox"]:not(:checked)+label {
-    background-color: #d8d8d8;
+    background-color: #eee;
 }
 
 label {
@@ -164,16 +164,17 @@ nav button{
 }
 .dark-mode input[type="checkbox"]:checked + label{
     background-color: #aaa;
+    /* background-color: #333; */
 }
 .dark-mode input[type="checkbox"]:not(:checked) + label {
     background-color: #ccc;
+    /* background-color: #181818; */
 }
 .dark-mode #searchBox{
     color: whitesmoke;
     background-color: black;
 }
 
-.dark-mode .recipe-image,
 .dark-mode .basics, 
 .dark-mode .starters,
 .dark-mode .main-courses,
@@ -181,4 +182,8 @@ nav button{
 .dark-mode .ice-creams,
 .dark-mode .breads{
     filter: invert(1) hue-rotate(180deg) brightness(0.65);
+}
+
+.dark-mode .recipe-image{
+    filter: invert(1) hue-rotate(180deg);
 }
