@@ -40,6 +40,9 @@ h1 {
     user-select: none;
     color: #111;
 }
+#back-button:hover {
+    box-shadow: #999 0 0 10px;
+}
 
 .icon {
     width: 40px;
