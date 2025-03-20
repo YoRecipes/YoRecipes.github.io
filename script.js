@@ -31,3 +31,14 @@ if (theme === "dark") {
 } else if (theme === "light") {
   lightTheme();
 }
+
+document.querySelectorAll(".recipe a").forEach((link) => {
+  link.addEventListener("click", function (event) {
+    if (localStorage.getItem("theme") == "dark"){
+      event.preventDefault();
+      url = this.getAttribute("href")+'?theme=dark'
+      window.location.href = url;
+    }
+    
+  });
+});
