@@ -2,6 +2,10 @@
     font-family: monotypeCorsiva;
     src: url(monotype-corsiva.ttf);
 }
+@font-face {
+    font-family: monotypeCorsivaBis;
+    src: url(../../monotype-corsiva.ttf);
+}
 
 body {
     display: flex;
@@ -9,14 +13,45 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    padding-top: 2em;
-    font-family: monotypeCorsiva;
+    font-family: monotypeCorsiva, monotypeCorsivaBis;
 }
 
 h1 {
     text-align: center;
     color: #333;
     margin: 0.2em 0 0 0;
+}
+
+#logo{
+    margin-top: 2em;
+}
+
+#back-button {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    margin: 0.1em;
+    background-color: #ccc;
+    border-radius: 0.5em;
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+    user-select: none;
+    color: #111;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+}
+
+.recipe-image {
+    width: 99%;
+    max-width: 750px;
+    margin: 1em 10px;
+    box-shadow: #666 0 0 10px;
 }
 
 #recipe-types {
@@ -116,8 +151,17 @@ nav button{
     background-color: black;
     color: whitesmoke;
 }
+.dark-mode a{
+    color: rgba(255,255,255,.6)
+}
+.dark-mode a:hover{
+    color: rgba(255,255,255,.8)
+}
 .dark-mode #logo{
     filter: invert(0.95);
+}
+.dark-mode .recipe-image{
+    filter: invert(1);
 }
 .dark-mode h1{
     color: #ccc;
