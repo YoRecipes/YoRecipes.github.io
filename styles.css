@@ -150,7 +150,7 @@ nav button{
 }
 
 .dark-mode{
-    background-color: black;
+    background-color: #1e1e1e;
     color: whitesmoke;
 }
 .dark-mode a{
@@ -175,7 +175,7 @@ nav button{
 }
 .dark-mode #searchBox{
     color: whitesmoke;
-    background-color: black;
+    background-color: #1e1e1e;
 }
 
 .dark-mode .basics, 
