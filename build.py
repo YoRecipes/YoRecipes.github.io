@@ -348,10 +348,19 @@ if __name__ == "__main__":
     convert_all_pdf_to_png('PDF-es', 'PNG-es')
     # create all html files
     create_all_html('PNG-es', 'PDF-es', 'DOCX-es', 'HTML-es', 'es.html')
-    create_index('es-ES')
+    create_index('sp-ES')
     print('SPANISH: Done!')
     print('\n'*3)
     
+    ### Italian
+    # translate all recipes to English
+    translate_all_recipes('DOCX', 'DOCX-it', GoogleTranslator(source='fr', target='it'), 'it-IT')
+    # convert all docx to pdf
+    convert_all_docx_to_pdf('DOCX-it', 'PDF-it')
+    # convert all pdf to png
+    convert_all_pdf_to_png('PDF-it', 'PNG-it')
+    # create all html files
+    create_all_html('PNG-it', 'PDF-it', 'DOCX-it', 'HTML-it', 'it.html')
     create_index('it-IT')
     print('ITALIAN: Done!')
     print('\n'*3)
