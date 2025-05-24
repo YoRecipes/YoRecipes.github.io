@@ -1,5 +1,6 @@
 {
   "fr-FR": {
+    "lang": "fr",
     "Basics": "Basiques",
     "Breads": "Pains",
     "Desserts": "Desserts",
@@ -9,6 +10,7 @@
     "Search": "Chercher une recette..."
   },
   "en-US": {
+    "lang": "en",
     "Basics": "Basics",
     "Breads": "Breads",
     "Desserts": "Desserts",
@@ -115,6 +117,7 @@
     "\u0152ufs Mimosa": "Mimosa eggs"
   },
   "sp-ES": {
+    "lang": "sp",
     "Basics": "Basics",
     "Breads": "Breads",
     "Desserts": "Desserts",
@@ -223,6 +226,7 @@
     "\u0152ufs Mimosa": "Huevos de mimosa"
   },
   "it-IT": {
+    "lang": "it",
     "Basics": "Basics",
     "Breads": "Breads",
     "Desserts": "Desserts",
