@@ -341,14 +341,14 @@ if __name__ == "__main__":
 
     ### Spanish
     # translate all recipes to English
-    translate_all_recipes('DOCX', 'DOCX-es', GoogleTranslator(source='fr', target='es'), 'sp-ES')
+    translate_all_recipes('DOCX', 'DOCX-es', GoogleTranslator(source='fr', target='es'), 'es-ES')
     # convert all docx to pdf
     convert_all_docx_to_pdf('DOCX-es', 'PDF-es')
     # convert all pdf to png
     convert_all_pdf_to_png('PDF-es', 'PNG-es')
     # create all html files
     create_all_html('PNG-es', 'PDF-es', 'DOCX-es', 'HTML-es', 'es.html')
-    create_index('sp-ES')
+    create_index('es-ES')
     print('SPANISH: Done!')
     print('\n'*3)
     
