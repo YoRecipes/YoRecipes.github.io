@@ -10,7 +10,13 @@ https://yorecipes.github.io/
 2. Make sure the needed extensions are installed.
 3. Run the `build.py` script. This will automatially translate the document to other languages, convert to PDF/PNG/HTML, and index to the main page.
 
-## Extensions needed:
+## Python Packages needed:
+
+```bash
+$ pip install -r requirements.txt
+```
+
+or manually
 
 ```bash
 pip install docx2pdf
